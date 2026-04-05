@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abdelrhman Khalil | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #0d0d0d;
+      color: #eee;
+      display: flex;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 240px;
+      background: #111;
+      color: #fff;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      padding: 25px 10px;
+      text-align: center;
+      border-right: 1px solid #222;
+      overflow-y: auto;
+    }
+
+    .sidebar img {
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      border: 4px solid #3a86ff;
+      margin-bottom: 15px;
+      object-fit: cover;
+      box-shadow: 0 0 20px rgba(58, 134, 255, 0.6);
+    }
+
+    .sidebar h2 {
+      margin: 10px 0;
+      font-size: 20px;
+      color: #3a86ff;
+    }
+
+    .sidebar a {
+      display: block;
+      color: #ccc;
+      text-decoration: none;
+      margin: 12px 0;
+      font-size: 15px;
+      transition: 0.3s;
+    }
+
+    .sidebar a:hover {
+      color: #3a86ff;
+    }
+
+    .cv-btn-sidebar {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 15px;
+      background: linear-gradient(90deg, #3a86ff, #ff006e);
+      color: #fff;
+      border-radius: 20px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .cv-btn-sidebar:hover {
+      opacity: 0.85;
+      transform: translateY(-2px);
+    }
+
+    .main-content {
+      margin-left: 240px;
+      width: calc(100% - 240px);
+    }
+
+    header {
+      text-align: center;
+      padding: 50px 30px;
+    }
+
+    header h1 {
+      font-size: 48px;
+      margin: 15px 0;
+      color: #3a86ff;
+    }
+
+    header p {
+      font-size: 18px;
+      max-width: 900px;
+      margin: 20px auto;
+      line-height: 1.8;
+    }
+
+    section {
+      padding: 50px 30px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .section-title {
+      font-size: 26px;
+      color: #ff006e;
+      margin-bottom: 30px;
+    }
+
+    .project-category {
+      margin-top: 35px;
+      margin-bottom: 18px;
+      font-size: 22px;
+      color: #3a86ff;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #1a1a1a;
+      padding: 16px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+      transition: transform 0.35s, box-shadow 0.35s, border 0.35s;
+      opacity: 0;
+      transform: translateY(18px);
+      animation: fadeUp 0.8s forwards;
+    }
+
+    .card:hover {
+      transform: translateY(-6px) scale(1.01);
+      border: 1px solid #3a86ff;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.55);
+    }
+
+    .card h3 {
+      margin: 12px 0 10px;
+      color: #3a86ff;
+    }
+
+    .card p {
+      line-height: 1.7;
+      margin: 8px 0;
+    }
+
+    .card a {
+      color: #ffbe0b;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+
+    .project-image {
+      width: 100%;
+      height: 170px;
+      border-radius: 10px;
+      object-fit: cover;
+      border: 1px solid #2b2b2b;
+      background: #111;
+      display: block;
+    }
+
+    .project-meta {
+      color: #cfcfcf;
+      font-size: 14px;
+      margin-top: 6px;
+    }
+
+
+
+
+    .project-category{
+margin-top:40px;
+margin-bottom:20px;
+color:#3a86ff;
+}
+
+.projects{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.card{
+background:#1e1e1e;
+padding:20px;
+border-radius:10px;
+transition:0.4s;
+transform:translateY(20px);
+opacity:0;
+animation:fadeUp 0.8s forwards;
+}
+
+.card:hover{
+transform:scale(1.05);
+box-shadow:0 10px 20px rgba(0,0,0,0.5);
+}
+
+@keyframes fadeUp{
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+
+
+
+
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .skill {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 14px;
+      text-align: center;
+      box-shadow: inset 0 0 10px #222, 0 0 10px rgba(0, 0, 0, 0.6);
+      transition: 0.3s;
+      padding: 10px;
+    }
+
+    .skill:hover {
+      box-shadow: 0 0 12px #3a86ff;
+      transform: scale(1.05);
+    }
+
+    .stats-wrap {
+      text-align: center;
+    }
+
+    .stats-wrap img {
+      max-width: 100%;
+      width: 700px;
+      border-radius: 12px;
+      margin: 12px 0;
+      box-shadow: 0 0 14px rgba(0, 0, 0, 0.45);
+    }
+
+    footer {
+      background: #111;
+      color: #aaa;
+      padding: 20px;
+      text-align: center;
+      margin-top: 50px;
+      border-top: 1px solid #222;
+    }
+
+    footer a {
+      color: #3a86ff;
+      text-decoration: none;
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 900px) {
+      body {
+        display: block;
+      }
+
+      .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid #222;
+      }
+
+      .main-content {
+        margin-left: 0;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <img src="https://raw.githubusercontent.com/ABDELRHMAN4004/portfolio.1/main/WhatsApp%20Image%202025-05-15%20at%2001.32.41_def56f30.jpg" alt="Profile">
+    <h2>Abdelrhman Khalil</h2>
+    <a href="#about"><i class="fas fa-user"></i> About</a>
+    <a href="#training"><i class="fas fa-graduation-cap"></i> Trainings</a>
+    <a href="#projects"><i class="fas fa-laptop-code"></i> Projects</a>
+    <a href="#skills"><i class="fas fa-cogs"></i> Skills</a>
+    <a href="#languages"><i class="fas fa-language"></i> Languages</a>
+    <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+    <a href="CV.pdf" target="_blank" class="cv-btn-sidebar"><i class="fas fa-file"></i> Open CV</a>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+
+    <header id="about">
+      <h1>Abdelrhman Khalil Abdullah</h1>
+      <p>
+        Artificial Intelligence student with a strong interest in Data Science, Data Analysis, and Machine Learning.
+        Skilled in analyzing data using Python and applying machine learning techniques to develop practical solutions.
+        Motivated to continuously learn new technologies and build real-world projects that strengthen technical and analytical skills.
+        Passionate about building AI-powered solutions that solve real problems.
+      </p>
+    </header>
+
+    <!-- Trainings -->
+    <section id="training">
+      <h2 class="section-title">Trainings & Certifications</h2>
+      <div class="projects">
+
+        <div class="card" style="animation-delay:0.05s;">
+          <h3>Artificial Intelligence & Applications Training</h3>
+          <p>Aug 2023 | 50 Hours | Zewail City of Science and Technology</p>
+        </div>
+
+        <div class="card" style="animation-delay:0.1s;">
+          <h3>Artificial Intelligence Diploma</h3>
+          <p>Jul 2024 – Jul 2025 | 150 Hours | ARRAY Training & Courses Center</p>
+        </div>
+
+        <div class="card" style="animation-delay:0.15s;">
+          <h3>Artificial Intelligence Training Program</h3>
+          <p>Jul 2025 – Aug 2025 | 90 Hours | Information Technology Institute</p>
+        </div>
+
+        <div class="card" style="animation-delay:0.2s;">
+          <h3>Data Analytics Summer Training</h3>
+          <p>Aug 2025 | 120 Hours | National Telecommunication Institute & ITIDA</p>
+        </div>
+
+        <div class="card" style="animation-delay:0.25s;">
+          <h3>Generative AI Training</h3>
+          <p>Jan 2026 – Feb 2026 | 35 Hours | ITI in collaboration with NVIDIA Deep Learning Institute</p>
+        </div>
+
+        <div class="card" style="animation-delay:0.3s;">
+          <h3>Online Courses & Certifications</h3>
+          <p>Completed multiple online courses in AI, Machine Learning, Data Science. All details available on <a href="https://www.linkedin.com/in/abdulrahman-khalil-ba64272a3" target="_blank">LinkedIn</a>.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Projects -->
+<section id="projects">
+
+<h2 class="section-title">Projects</h2>
+
+<!-- Machine Learning -->
+
+<h3 class="project-category">Machine Learning</h3>
+
+<div class="projects">
+
+<div class="card">
+<h3>Breast Cancer Prediction</h3>
+<p>Machine Learning model using SVM</p>
+<a href="https://github.com/ABDELRHMAN4004/ML_Projects/tree/main/Breast%20Cancer">View Project</a>
+</div>
+
+<div class="card">
+<h3>Student Success Prediction</h3>
+<p>EDA + Machine Learning Model (93% Accuracy)</p>
+<a href="https://github.com/ABDELRHMAN4004/Student-Success-EDA-ML-with-acc-93-">View Project</a>
+</div>
+
+</div>
+
+
+<!-- Computer Vision -->
+
+<h3 class="project-category">Computer Vision</h3>
+
+<div class="projects">
+
+<div class="card">
+<h3>Face Mask Detection</h3>
+<p>OpenCV + TensorFlow</p>
+</div>
+
+<div class="card">
+<h3>AI Medical Lab Analyzer</h3>
+<p>Random Forest + Streamlit</p>
+<a href="https://github.com/ABDELRHMAN4004/medical-lab">View Project</a>
+</div>
+
+</div>
+
+
+<!-- Data Analysis -->
+
+<!-- Data Analysis -->
+
+<h3 class="project-category">Data Analysis</h3>
+
+<div class="projects">
+
+<div class="card">
+<h3>Global Cybersecurity Threats Analysis</h3>
+<p>Pandas · Matplotlib · Seaborn</p>
+<a href="https://github.com/ABDELRHMAN4004/DataAnalysis">View Project</a>
+</div>
+
+</div>
+
+
+<!-- Dashboards -->
+
+<h3 class="project-category">Dashboards</h3>
+
+<div class="projects">
+
+<div class="card">
+<h3>HR Analytics Dashboard</h3>
+<p>Power BI Dashboard</p>
+<a href="https://github.com/ABDELRHMAN4004/HR_Analytics">View Project</a>
+</div>
+
+<div class="card">
+<h3>AI Jobs Dataset Dashboard</h3>
+<p>Data Analysis Dashboard</p>
+<a href="https://github.com/ABDELRHMAN4004/ai_job_dataset-dashboard-">View Project</a>
+</div>
+
+<div class="card">
+<h3>Telecom Customer Churn Dashboard</h3>
+<p>Power BI Dashboard</p>
+<a href="https://github.com/ABDELRHMAN4004/Dashboards">View Project</a>
+</div>
+
+<div class="card">
+<h3>Premier League Dashboard</h3>
+<p>Football Analytics Dashboard</p>
+<a href="https://www.linkedin.com/">View Project</a>
+</div>
+
+</div>
+
+
+
+</section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <h2 class="section-title">Technical Skills</h2>
+      <div class="skills">
+        <div class="skill">Python</div>
+        <div class="skill">C++</div>
+        <div class="skill">Java</div>
+        <div class="skill">Pandas, NumPy</div>
+        <div class="skill">Scikit-learn, TensorFlow, PyTorch</div>
+        <div class="skill">Matplotlib, Seaborn</div>
+        <div class="skill">Power BI, Excel</div>
+        <div class="skill">Jupyter Notebook, Git, GitHub</div>
+        <div class="skill">Machine Learning</div>
+        <div class="skill">Data Analysis & Visualization</div>
+        <div class="skill">Problem Solving</div>
+        <div class="skill">Analytical Thinking</div>
+        <div class="skill">RESTful APIs, JWT</div>
+        <div class="skill">Teamwork & Public Speaking</div>
+        <div class="skill">Conflict Resolution</div>
+      </div>
+    </section>
+
+    <!-- Languages -->
+    <section id="languages">
+      <h2 class="section-title">Languages</h2>
+      <div class="skills">
+        <div class="skill">Arabic (Mother Language)</div>
+        <div class="skill">English (B1) Second Language</div>
+        <div class="skill">German (A1) Third Language</div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2 class="section-title">Contact</h2>
+      <p><i class="fab fa-github"></i> <a href="https://github.com/ABDELRHMAN4004" target="_blank">GitHub</a></p>
+      <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/abdulrahman-khalil-ba64272a3" target="_blank">LinkedIn</a></p>
+      <p><i class="fab fa-telegram"></i> <a href="https://t.me/abde1rhm3n" target="_blank">Telegram</a></p>
+      <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/201157853990" target="_blank">WhatsApp</a></p>
+    </section>
+
+    <footer>
+      &copy; 2026 Abdelrhman Khalil Abdullah — Designed with 
+    </footer>
+
+  </div>
+</body>
+</html>
